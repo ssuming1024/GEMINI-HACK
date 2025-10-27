@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gemini Hack Terminal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'mono': ['"Fira Code"', 'monospace'],
+            },
+            colors: {
+              'hacker-green': '#00ff41',
+              'hacker-dark': '#0d1117',
+              'hacker-darker': '#010409',
+            },
+            animation: {
+              'scanline': 'scanline 10s linear infinite',
+              'glow': 'glow 1.5s ease-in-out infinite alternate'
+            },
+            keyframes: {
+              scanline: {
+                '0%': { backgroundPosition: '0 0' },
+                '100%': { backgroundPosition: '0 100%' },
+              },
+               glow: {
+                'from': {
+                  textShadow: '0 0 5px #00ff41, 0 0 10px #00ff41, 0 0 15px #00ff41',
+                  boxShadow: '0 0 5px #00ff41, 0 0 10px #00ff41'
+                },
+                'to': {
+                  textShadow: '0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41',
+                  boxShadow: '0 0 10px #00ff41, 0 0 20px #00ff41'
+                }
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        body {
+            background-color: #010409;
+            color: #00ff41;
+            font-family: 'Fira Code', monospace;
+        }
+        .scanline-effect::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(to bottom, rgba(13, 17, 23, 0), rgba(13, 17, 23, 0.75) 50%, rgba(13, 17, 23, 0));
+            background-size: 100% 4px;
+            animation: scanline 10s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.27.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
